@@ -35,5 +35,18 @@ func main() {
 	// fmt.Println(d)
 	// fmt.Println(as)
 
-	// if
+	//
+
+	// lesson Part - 1 Types & Variables
+
+	intVar8 := int8(127)
+	intVar16 := int16(22222)
+	intVar32 := int32(1243222432)
+	intVar64 := int64(1274324324432422222)
+
+	fmt.Println(intVar8)
+	fmt.Println(intVar16)
+	fmt.Println(intVar32)
+	fmt.Println(intVar64)
+
 }
