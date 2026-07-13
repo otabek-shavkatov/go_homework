@@ -49,4 +49,79 @@ func main() {
 	fmt.Println(intVar32)
 	fmt.Println(intVar64)
 
+	// --------------------------------------
+
+	//  overflow
+
+	// negative overflow
+	var intVar8Neg int8 = 127
+	intVar8Neg += 1
+	fmt.Println(intVar8Neg)
+
+	// positive overflow
+	var intVar8Pos int8 = 127
+	intVar16Pos := int16(intVar8Pos)
+
+	intVar16Pos += 1
+	fmt.Println(intVar16Pos)
+
+	// --------------------------------------
+
+	//Type Conversion
+	result := fahrenheitToCelsius(celsiusToFahrenheit(100))
+	fmt.Println(result)
+
+	// --------------------------------------
+	// Part 2 — Functions
+	//	 if, else, else if...
+
+	a := int(5)
+	b := int(-3)
+	c := int(-1)
+	if a > 0 {
+		fmt.Println("a is greater than 0 max")
+	} else {
+		fmt.Println("a is not greater than 0")
+	}
+	if b < 0 {
+		fmt.Println("b is less than 0 min")
+	} else {
+		fmt.Println("b is not less than 0")
+	}
+	if c < 0 {
+		fmt.Println("c negative")
+	} else {
+		fmt.Println("c is not less than 0")
+	}
+
+	/// quadratic ----------------------------
+
+	fmt.Println(quadratic(1, -5, 6))
+}
+
+func celsiusToFahrenheit(celsius float64) float64 {
+	return (celsius * 9 / 5) + 32
+}
+
+func fahrenheitToCelsius(fahrenheit float64) float64 {
+	return (fahrenheit - 32) * 5 / 9
+}
+
+// ax² + bx + c = 0.
+// Test: (1, -5, 6), (1, 0, 1), (1, -2, 1).
+// Diskriminant (D) = b² - 4ac
+
+func quadratic(a, b, c float64) (float64, float64) {
+
+	D := (b * b) - (4 * a * c)
+	if D < 0 {
+		return 0, 0
+	} else if D > 0 {
+		fmt.Println("D > 0")
+	} else {
+		fmt.Println("D = 0")
+	}
+	x1 := (-b + D) / (2 * a)
+	x2 := (-b - D) / (2 * a)
+	return x1, x2
 }
