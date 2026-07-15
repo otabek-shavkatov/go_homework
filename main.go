@@ -97,6 +97,69 @@ func main() {
 	/// quadratic ----------------------------
 
 	fmt.Println(quadratic(1, -5, 6))
+
+	//  PrintLn() - it will print the value and add a new line at the end of the value
+	// Print() - it will print the value without adding a new line at the end of the value
+	// Printf() - it will print the value without adding a new line at the end of the value and it will format the value according to the format specifier
+
+	// Part 3
+	numberTest := 42
+	fmt.Printf("The number is: %d\n", numberTest)
+	fmt.Printf("The number is: %b\n", numberTest)
+	fmt.Printf("The number is: %o\n", numberTest)
+	fmt.Printf("The number is: %x\n", numberTest)
+	fmt.Printf("The number is: first the number convert to binary, so and added zero to laft side until all size to 8 %08b\n", numberTest)
+
+	///
+
+	sum, carry := halfAdder(true, true)
+	fmt.Println("Sum:", sum, "Carry:", carry)
+
+	sum1, carry1 := halfAdder(true, false)
+	fmt.Println("Sum:", sum1, "Carry:", carry1)
+
+	sum2, carry2 := halfAdder(false, true)
+	fmt.Println("Sum:", sum2, "Carry:", carry2)
+
+	sum3, carry3 := halfAdder(false, false)
+	fmt.Println("Sum:", sum3, "Carry:", carry3)
+	///
+
+	A := true
+	B := false
+
+	sum, carry = halfAdder(A, B)
+	fmt.Printf("A: %t, B: %t, Sum: %t, Carry: %t\n", A, B, sum, carry)
+
+	A1 := true
+	B1 := false
+
+	sum, carry = halfAdder(A1, B1)
+	fmt.Printf("A: %t, B: %t, Sum: %t, Carry: %t\n", A1, B1, sum, carry)
+
+	A2 := true
+	B2 := false
+
+	sum, carry = halfAdder(A2, B2)
+	fmt.Printf("A: %t, B: %t, Sum: %t, Carry: %t\n", A2, B2, sum, carry)
+
+	A3 := true
+	B3 := false
+
+	sum, carry = halfAdder(A3, B3)
+	fmt.Printf("A: %t, B: %t, Sum: %t, Carry: %t\n", A3, B3, sum, carry)
+
+	numberList := []int{0, 1, 10, 42, 127, 128, 200, 255, -42}
+
+	for number := range numberList {
+		fmt.Printf("Dec The number is: %d\n", numberList[number])
+		fmt.Printf("Bin The number is: %b\n", numberList[number])
+		fmt.Printf("Oct The number is: %o\n", numberList[number])
+		fmt.Printf("Hex The number is: %x\n", numberList[number])
+		fmt.Printf("The number is: first the number convert to binary, so and added zero to laft side until all size to 8 %08b\n", numberList[number])
+		fmt.Println()
+	}
+
 }
 
 func celsiusToFahrenheit(celsius float64) float64 {
@@ -124,4 +187,26 @@ func quadratic(a, b, c float64) (float64, float64) {
 	x1 := (-b + D) / (2 * a)
 	x2 := (-b - D) / (2 * a)
 	return x1, x2
+}
+
+// part 4
+func nand(a, b bool) bool {
+	return !(a && b)
+}
+
+func andFromNand(a, b bool) bool {
+
+	m := nand(a, b)
+	and := nand(m, m)
+	return and
+}
+
+func halfAdder(a, b bool) (bool, bool) {
+	m := nand(a, b)
+	n := nand(a, m)
+	o := nand(b, m)
+
+	carry := andFromNand(n, o)
+	sum := nand(n, o)
+	return sum, carry
 }
