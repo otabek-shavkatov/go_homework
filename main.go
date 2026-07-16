@@ -42,13 +42,19 @@ func main() {
 
 	intVar8 := int8(127)
 	intVar16 := int16(22222)
+	uintVar8 := uint8(255)
+	uintVar16 := uint16(65535)
 	intVar32 := int32(1243222432)
 	intVar64 := int64(1274324324432422222)
+	intVarFloat := float64(127.1234567890123456789)
 
 	fmt.Println(intVar8)
 	fmt.Println(intVar16)
+	fmt.Println(uintVar8)
+	fmt.Println(uintVar16)
 	fmt.Println(intVar32)
 	fmt.Println(intVar64)
+	fmt.Println(intVarFloat)
 
 	// --------------------------------------
 
