@@ -168,12 +168,12 @@ func main() {
 
 	numberList := []int{0, 1, 10, 42, 127, 128, 200, 255, -42}
 
-	for number := range numberList {
-		fmt.Printf("Dec The number is: %d\n", numberList[number])
-		fmt.Printf("Bin The number is: %b\n", numberList[number])
-		fmt.Printf("Oct The number is: %o\n", numberList[number])
-		fmt.Printf("Hex The number is: %x\n", numberList[number])
-		fmt.Printf("The number is: first the number convert to binary, so and added zero to laft side until all size to 8 %08b\n", numberList[number])
+	for _, number := range numberList {
+		fmt.Printf("Dec The number is: %d\n", number)
+		fmt.Printf("Bin The number is: %b\n", number)
+		fmt.Printf("Oct The number is: %o\n", number)
+		fmt.Printf("Hex The number is: %x\n", number)
+		fmt.Printf("The number is: first the number convert to binary, so and added zero to laft side until all size to 8 %08b\n", number)
 		fmt.Println()
 	}
 
