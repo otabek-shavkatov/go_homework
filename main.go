@@ -76,6 +76,16 @@ func main() {
 	// Part 2 — Functions
 	//	 if, else, else if...
 
+	// --------------------------------------
+
+	var x int8 = 127
+	fmt.Println(x)
+
+	x++
+	fmt.Println("x: overflow version", x)
+
+	// --------------------------------------
+
 	a := int(5)
 	b := int(-3)
 	c := int(-1)
