@@ -3,6 +3,7 @@ package main
 import (
 	"Go-practise/auth"
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -184,8 +185,8 @@ func quadratic(a, b, c float64) (float64, float64) {
 	} else {
 		fmt.Println("D = 0")
 	}
-	x1 := (-b + D) / (2 * a)
-	x2 := (-b - D) / (2 * a)
+	x1 := (-b + math.Sqrt(D)) / (2 * a)
+	x2 := (-b - math.Sqrt(D)) / (2 * a)
 	return x1, x2
 }
 
